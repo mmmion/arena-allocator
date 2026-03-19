@@ -70,7 +70,7 @@ Use these flags during initialization to customize the allocator's behavior:
 
 int main() {
     // 1. Initialize arena with 1KB and debug logging enabled
-    arena_t *arena = arena_init(1024, ARENA_ALLOCATE_AND_ZERO | ARENA_DEBUG);
+    arena_t *arena = arena_init(1024, ARENA_ZERO | ARENA_DEBUG);
 
     // 2. Allocate memory for 10 integers
     int *numbers = arena_alloc(arena, 10 * sizeof(int));
