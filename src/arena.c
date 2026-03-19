@@ -151,6 +151,14 @@ unsigned char *arena_alloc(arena_t *arena, size_t memory_size)
 
     if (!arena_has_space(arena, memory_size))
     {
+        if (!arena_has_dynamic_flag(arena))
+        {
+            if (arena_has_debug_flag(arena))
+                debug("The arena capacity is too small to allocate and doesn't have flag for dynamic expansion.", "WARN");
+
+            return NULL;
+        }
+
         if (arena_has_debug_flag(arena))
             debug("The arena capacity is too small to allocate, expanding the arena.", "INFO");
 

@@ -21,9 +21,10 @@ typedef struct arena arena_t;
 #define DEFAULT_GROWTH_FACTOR 2
 #define ARENA_MAX_SIZE (1024 * 1024 * 1024) // 1 GB
 
-/* Flags */
+/* Flags (Powers of two) */
 #define ARENA_ZERO 0x1
 #define ARENA_DEBUG 0x2
+#define ARENA_DYNAMIC 0x4
 
 /* Checks */
 bool valid_size(size_t size);
@@ -54,6 +55,11 @@ static inline int arena_has_debug_flag(const arena_t *arena)
 static inline int arena_has_zero_flag(const arena_t *arena)
 {
     return (arena->flags & ARENA_ZERO) != 0;
+}
+
+static inline int arena_has_dynamic_flag(const arena_t *arena)
+{
+    return (arena->flags & ARENA_DYNAMIC) != 0;
 }
 
 #endif // ARENA_H

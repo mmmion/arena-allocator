@@ -4,12 +4,10 @@
 
 int main()
 {
-    arena_t *arena = arena_init(sizeof(int) * 300, ARENA_ZERO | ARENA_DEBUG);
+    arena_t *arena = arena_init(sizeof(int) * 300, ARENA_ZERO | ARENA_DEBUG | ARENA_DYNAMIC);
 
     if (!arena)
         return -1;
-
-    arena_free(arena);
 
     int *array = (int *)arena_alloc(arena, sizeof(int) * 500); // Expand the capacity
     if (!array)                                                // Failed to allocate

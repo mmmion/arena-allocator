@@ -57,10 +57,11 @@ arena_destroy(arena);
 
 Use these flags during initialization to customize the allocator's behavior:
 
-| Flag            | Hex Value | Description                                      |
-| :-------------- | :-------- | :----------------------------------------------- |
-| `ARENA_ZERO`    | `0x1`     | Automatically zero-initialize all allocations.   |
-| `ARENA_DEBUG`   | `0x2`     | Enable debug logging to stdout.                  |
+| Flag              | Hex Value   | Description                                      |
+| :--------------   | :--------   | :----------------------------------------------- |
+| `ARENA_ZERO`      | `0x1`       | Automatically zero-initialize all allocations.   |
+| `ARENA_DEBUG`     | `0x2`       | Enable debug logging to stdout.                  |
+| `ARENA_DYNAMIC`   | `0x4`       | Dynamic growth of the arena                      |
 ---
 
 ## Example
